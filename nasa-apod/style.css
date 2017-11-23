@@ -1,1 +1,52 @@
+body, html {
+	background-image: url("https://media.giphy.com/media/3og0IFrHkIglEOg8Ba/giphy.gif");
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: white;
+}
 
+#date-picker {
+	display: inline;
+	color: black;
+}
+
+#pick-date {
+	padding-bottom: 10px;
+	margin: auto;
+	margin-bottom: 20px;
+	width: 20%;
+	border: 2px dotted white;
+}
+
+#pick-date, #title {
+	padding-top: 10px;
+}
+
+#picture img {
+	border: solid 2px gray;
+}
+
+#progress {
+	background-size: 200%;
+	visibility: hidden;
+	margin-top: 50px;
+}
+
+#title, #picture, #error, #date-picker, #progress, #pick-date, h1 {
+	text-align: center;
+}
+
+#heading {
+	margin: 40px;
+	font-size: 50px;
+	font-family: "Apple Chancery";
+}
+
+#explanation {
+	padding-left: 280px;
+	padding-right: 280px;
+}
+
+#error {
+	color: red;
+}
