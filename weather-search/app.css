@@ -1,0 +1,179 @@
+body {
+    background-image: url('./manhattan.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: lightslategray;
+    height: 100vh;
+    width: 100vw;
+}
+
+#weather-search, #weather-saved, #location-saved {
+    list-style: none;
+}
+
+.search {
+    margin-left: 1.5%;
+}
+
+.search, .saved-places {
+    border: none;
+}
+
+#save-button, .search {
+    background: lightsteelblue;
+    color: white;
+}
+
+#heading {
+    text-align: center;
+}
+
+h1 {
+    padding-left: 5%;
+}
+
+h2 {
+    padding-left: 1%;
+}
+
+h3 {
+    display: inline;
+}
+
+h4 {
+    color: darkslategray;
+}
+
+.panel, .left-section {
+    margin-top: 5%;
+}
+
+#information {
+    margin-bottom: 4%;
+    margin-left: 7%;
+}
+
+.panel {
+    width: 30%;
+    margin-left: 10%;
+    margin-right: 4%;
+}
+
+.panel, .left-section {
+    float: left;
+}
+
+.panel-heading {
+    padding-left: 3%;
+    position: relative;
+}
+
+.left-section {
+    width: 50%;
+}
+
+.remove {
+    float: right;
+}
+
+#input-box {
+    width: 70%;
+}
+
+#error {
+    width: 30%;
+}
+
+#information, #error {
+    margin-left: 5%;
+}
+
+@media (max-width: 1300px) {
+    .panel {
+        top: 60%;
+        width: 80%;
+    }
+
+    .left-section {
+        width: 100%;
+        margin-left: 6.5%;
+    }
+
+    #information, #error {
+        margin-left: 3%;
+    }
+}
+
+@media (max-width: 920px) {
+    .left-section, #error {
+        margin-left: 5%;
+    }
+
+    #information {
+        margin-left: 4%;
+    }
+
+    .panel-heading {
+        padding-left: 3.5%;
+    }
+
+    .panel {
+        margin-top: 2%;
+    }
+}
+
+@media (max-width: 700px) {
+    #information, #error {
+        margin-left: 6%;
+    }
+
+    .panel-heading {
+        padding-left: 4%;
+    }
+}
+
+@media (max-width: 620px) {
+    #error {
+        width: 30%;
+        margin-left: 7%;
+    }
+}
+
+@media (max-width: 560px) {
+    .left-section {
+        margin-left: 3%;
+    }
+
+    .panel-heading {
+        padding-left: 6%;
+    }
+
+    #error {
+        margin-left: 8%;
+    }
+}
+
+@media (max-width: 500px) {
+    #information {
+        margin-left: 8%;
+    }
+
+    .panel {
+        width: 78%;
+        margin-left: 12%;
+    }
+
+    .panel-heading {
+        padding-left: 7.5%;
+    }
+
+    #weather-search, #weather-saved btn {
+        padding-left: 9%;
+    }
+
+    #error {
+        margin-left: 9%;
+        width: 40%;
+    }
+}
