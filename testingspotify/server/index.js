@@ -48,8 +48,9 @@ app.use((req, res, next) => {
 
 // These are my test client_credentials,
 // replace with your own id/secret
-var SPOTIFY_ID = '6caad84a95784bd4bc074cad1f206774';
-var SPOTIFY_SECRET = 'ea63300480cd47adbc64fb501b7c11ae';
+var SPOTIFY_ID = '5cb9c36d867a4d479af678d8c130103c';
+var SPOTIFY_SECRET = '47bede1c209c4170b08eeb108bfe14c9';
+
 
 app.get('/api/spotify', function (req, res) {
     var search = req.query.q;
