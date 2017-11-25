@@ -1,18 +1,18 @@
-var twitterForm = document.getElementById("twitter-form");
-var twitterInput = document.getElementById("twitter-input");
+// var twitterForm = document.getElementById("twitter-form");
+// var twitterInput = document.getElementById("twitter-input");
 
-twitterForm.addEventListener('submit', function (e) {
-    e.preventDefault();
+// twitterForm.addEventListener('submit', function (e) {
+//     e.preventDefault();
 
-    var query = encodeURIComponent(twitterInput.value);
+//     var query = encodeURIComponent(twitterInput.value);
 
-    fetch('/api/twitter?q=' + query)
-    .then(function (response) {
-        return response.json();
-    }).then(function (json) {
-        console.log(json);
-    });
-});
+//     fetch('/api/twitter?q=' + query)
+//     .then(function (response) {
+//         return response.json();
+//     }).then(function (json) {
+//         console.log(json);
+//     });
+// });
 
 var spotifyForm = document.getElementById("spotify-form");
 var spotifyInput = document.getElementById("spotify-input");

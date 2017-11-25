@@ -12,39 +12,39 @@ app.use((req, res, next) => {
 
 // These are my test client_credentials,
 // replace with your own key/secret
-var TWITTER_KEY = 'jndUEH1V9eJ9TBee9QAjz2KIA';
-var TWITTER_SECRET = 'FhX6suZqaPIragVdSqfIwarNBGnRlzxRmbsV1Px5zTZ7grM9Rl';
+// var TWITTER_KEY = 'jndUEH1V9eJ9TBee9QAjz2KIA';
+// var TWITTER_SECRET = 'FhX6suZqaPIragVdSqfIwarNBGnRlzxRmbsV1Px5zTZ7grM9Rl';
 
-// Exposes an endpoint that your app can call to make API requests to twitter
-app.get('/api/twitter', function (req, res) {
-    var search = req.query.q;
+// // Exposes an endpoint that your app can call to make API requests to twitter
+// app.get('/api/twitter', function (req, res) {
+//     var search = req.query.q;
 
-    // First, make a post request to generate an access token,
-    // which is required to make further API requests.
-    request.post({
-        url: 'https://api.twitter.com/oauth2/token',
-        form: {
-            grant_type: 'client_credentials'
-        },
-        auth: {
-            username: TWITTER_KEY,
-            password: TWITTER_SECRET,
-            sendImmediately: true
-        },
-        json: true
-    }, function (authErr, authResponse, authJSON) {
-        // Once we have a token, add it to each API request we want to make.
-        request.get({
-            url: 'https://api.twitter.com/1.1/search/tweets.json?q=' + search,
-            auth: {
-                bearer: authJSON.access_token
-            },
-            json: true
-        }, function (searchErr, searchResponse, searchBody) {
-            res.json(searchBody);
-        });
-    });
-});
+//     // First, make a post request to generate an access token,
+//     // which is required to make further API requests.
+//     request.post({
+//         url: 'https://api.twitter.com/oauth2/token',
+//         form: {
+//             grant_type: 'client_credentials'
+//         },
+//         auth: {
+//             username: TWITTER_KEY,
+//             password: TWITTER_SECRET,
+//             sendImmediately: true
+//         },
+//         json: true
+//     }, function (authErr, authResponse, authJSON) {
+//         // Once we have a token, add it to each API request we want to make.
+//         request.get({
+//             url: 'https://api.twitter.com/1.1/search/tweets.json?q=' + search,
+//             auth: {
+//                 bearer: authJSON.access_token
+//             },
+//             json: true
+//         }, function (searchErr, searchResponse, searchBody) {
+//             res.json(searchBody);
+//         });
+//     });
+// });
 
 // These are my test client_credentials,
 // replace with your own id/secret
