@@ -1,0 +1,49 @@
+body {
+	background: url("/assets/newspapers.jpg") no-repeat;	
+	overflow: hidden;
+	background-size: cover;
+}
+
+.navbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 8%;
+	background: lightslategray;
+	z-index: 1;
+}
+
+.nav-link:hover {
+	background-color: darkgray;
+}
+
+.navbar-brand {
+	font-size: 30px;
+}
+
+.padding {
+	height: 6%;
+}
+
+.content {
+	height: 94%;
+	overflow: auto;
+	padding-left: 5%;
+}
+
+.card-img-top {
+	width: 300px;
+	height: 200px;
+	border-radius: 5px;
+}
+
+.flex-box {
+	display: flex;
+	padding-top: 4%;
+}
+
+.card {
+	margin-right: 10px;
+	width: 300px;
+}

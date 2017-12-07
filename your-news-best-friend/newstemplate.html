@@ -1,0 +1,175 @@
+<html>
+	<head>
+		<title>News Headlines</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+		<link rel="stylesheet" href="/assets/style.css" type="text/css">
+	</head>
+	<body>
+		<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+		  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+		   <span class="navbar-brand" href="#">Headlines</span>
+		  <div class="collapse navbar-collapse" id="navbarText">
+		    <ul class="navbar-nav mr-auto">
+		    	<li class="nav-item">
+		        	<a class="nav-link" href="#nyt">General</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#science">Science<span class="sr-only"></span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#tech">Technology</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#sports">Sports</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#finance">Finance</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#entertainment">Entertainment</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#natgeo">Animals</a>
+				</li>
+		    </ul>
+		  </div>
+		</nav><br />
+		
+		
+		<div class="content">
+		<div>
+			<a name="science"></a>
+			<div class="flex-box">
+			{% for science in newscientist %}
+			<div class="card">
+				<img class="card-img-top" src={{science.image}} alt="Card image cap">
+				<div class="card-block">
+			    	<h4 class="card-title">{{science.title}}</h4>
+			    	<p class="card-text">
+			    		{{science.description}}
+			    	</p>
+			    	<a href={{science.url}} class="btn btn-primary">Read More</a>
+			  	</div>
+			</div>
+			{% endfor %}
+		</div>
+		<br>
+
+		<div>
+			<a name="tech"></a>
+			<div class="flex-box">
+				{% for technews in tech %}
+				<div class="card">
+					<img class="card-img-top" src={{technews.image}} alt="Card image cap">
+					<div class="card-block">
+				    	<h4 class="card-title">{{technews.title}}</h4>
+				    	<p class="card-text">
+				    		{{technews.description}}
+				    	</p>
+				    	<a href={{technews.url}} class="btn btn-primary">Read More</a>
+				  	</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+		<br>
+
+		<div>
+			<a name="sports"></a>
+			<div class="flex-box">
+				{% for sport in sports %}
+				<div class="card">
+					<img class="card-img-top" src={{sport.image}} alt="Card image cap">
+					<div class="card-block">
+				    	<h4 class="card-title">{{sport.title}}</h4>
+				    	<p class="card-text">
+				    		{{sport.description}}
+				    	</p>
+				    	<a href={{sport.url}} class="btn btn-primary">Read More</a>
+				  	</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+		<br>
+
+		<div>
+			<a name="finance"></a>
+			<div class="flex-box">
+				{% for finance in financialtimes %}
+				<div class="card">
+					<img class="card-img-top" src={{finance.image}} alt="Card image cap">
+					<div class="card-block">
+				    	<h4 class="card-title">{{finance.title}}</h4>
+				    	<p class="card-text">
+				    		{{finance.description}}
+				    	</p>
+				    	<a href={{finance.url}} class="btn btn-primary">Read More</a>
+				  	</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+		<br>
+
+		<div>
+			<a name="nyt"></a>
+			<div class="flex-box">
+				{% for news in general %}
+				<div class="card">
+					<img class="card-img-top" src={{news.image}} alt="Card image cap">
+					<div class="card-block">
+				    	<h4 class="card-title">{{news.title|safe}}</h4>
+				    	<p class="card-text">
+				    		{{news.description}}
+				    	</p>
+				    	<a href={{news.url}} class="btn btn-primary">Read More</a>
+				  	</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+		<br>
+
+		<div>
+			<a name="entertainment"></a>
+			<div class="flex-box">
+				{% for fun in entertainment %}
+				<div class="card">
+					<img class="card-img-top" src={{fun.image}} alt="Card image cap">
+					<div class="card-block">
+				    	<h4 class="card-title">{{fun.title|safe}}</h4>
+				    	<p class="card-text">
+				    		{{fun.description}}
+				    	</p>
+				    	<a href={{fun.url}} class="btn btn-primary">Read More</a>
+				  	</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+		<br>
+
+		<div>
+			<a name="natgeo"></a>
+			<div class="flex-box">
+				{% for natgeo in natgeonews %}
+				<div class="card">
+					<img class="card-img-top" src={{natgeo.image}} alt="Card image cap">
+					<div class="card-block">
+				    	<h4 class="card-title">{{natgeo.title}}</h4>
+				    	<p class="card-text">
+				    		{{natgeo.description}}
+				    	</p>
+				    	<a href={{natgeo.url}} class="btn btn-primary">Read More</a>
+				  	</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+		<br>
+
+	</body>
+</html>
