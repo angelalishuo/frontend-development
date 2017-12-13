@@ -47,3 +47,14 @@ body {
 	margin-right: 10px;
 	width: 300px;
 }
+
+.desc-box {
+	position: relative;
+	padding-bottom: 3.5rem;
+}
+
+.read-more {
+	position: absolute;
+	bottom: 10px;
+	left: 20px;
+}
