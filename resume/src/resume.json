@@ -1,0 +1,75 @@
+{
+	"name": "Angela Li",
+	"email": "als1996@uw.edu",
+	"phone": "206-330-6586",
+	"image": "/assets/images/angela.jpg",
+	"experiences" : [
+		{
+			"title" : "Intern",
+			"period": "June-August 2017",
+			"company": "Ninja Van, Singapore",
+			"companyURL": "www.ninjavan.co",
+			"detail1title": "Product Management",
+			"detail1": ["Acted as a bridge of communication between the engineering team, the design team, and the warehouse operators", "Created JIRA tickets for the engineers and designers", "Wrote a user guide teaching new warehouse operators how to use the newer version", "Wrote documentation for various delivery services (freight, bulky, normal, etc.)", "Completed several product roadmaps to organize past, present and future projects"],
+			"detail2title": "UX Research and Design",
+			"detail2": ["Designed a website consisting of both the API documentation as well as a section to guide bigger clients on how to create a sandbox testing account independently", "Worked on a project to improve the interface design of a delivery app (Ninja Easy) used by smaller clients to deliver parcels to their customers", "Worked on a project to migrate warehouse operators to the newer version of a zonal routing software: conducted user research (interviews & contextual inquiries) for both versions of this software and ran usability testing on the warehouse operators for the newer version"],
+			"detail3title": "Frontend Development",
+			"detail3": ["Coded basic mock-ups for the first project under “UX Research and Design"]
+		},
+		{
+			"title" : "Research Intern",
+			"period": "June-August 2016",
+			"company": "Infocomm Development Agency, Singapore",
+			"companyURL": "https://www.imda.gov.sg/",
+			"details": "Researched and analysed ways to increase connectivity between people and their environment through interactions between big data and sensors to promote efficiency, productivity, and better end-user experiences",
+			"detail1": [],
+			"detail2": [],
+			"detail3": []
+		}
+	],
+	"skills": [
+		"HTML",
+		"CSS",
+		"Bootstrap",
+		"Javascript",
+		"React",
+		"Java",
+		"Python",
+		"Version Control",
+		"Data Structures",
+		"User Research",
+		"Prototyping",
+		"Usability Testing"
+	],
+	"interests": [
+		"Hiking",
+		"Jogging",
+		"Playing the piano"
+	],
+	"education": [
+		{
+			"degree": "Bachelor of Science in Human Centered Design and Engineering",
+			"university": "University of Washington, Seattle",
+			"gpa": "3.7", 
+			"period": "2015-2019",
+			"course1": "Web Development (HCDE 310, CSE 154, INFO 343)",
+			"course2": "Human Computer Interaction (HCDE 318, CSE 440)",
+			"course3": "Data Structures and Algorithms (CSE 373)",
+			"course4": "Software Design and Implementation (CSE 331)"
+		}
+	],
+	"languages": [
+		{
+			"name":"English",
+			"details": "Native"
+		},
+		{
+			"name":"Chinese",
+			"details": "Native"
+		},
+		{
+			"name":"Japanese",
+			"details": "Limited"
+		}
+	]
+}
