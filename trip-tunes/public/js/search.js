@@ -19,7 +19,7 @@ window.addEventListener('load', function (e) {
 		popularity = localStorage.getItem("popularity");
 	}
 
-  e.preventDefault();
+  	e.preventDefault();
 
 	var query = spotifyInput;
 	
