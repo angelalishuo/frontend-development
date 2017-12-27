@@ -1,8 +1,6 @@
-// document.getElementById("play").addEventListener("click", playFunction);
-// document.getElementById("stop").addEventListener("click", stopFunction);
- document.getElementById("restart").addEventListener("click", homeFunction);
- document.getElementById("title").addEventListener("click", homeFunction);
- document.getElementById("logo").addEventListener("click", homeFunction);
+document.getElementById("restart").addEventListener("click", homeFunction);
+document.getElementById("title").addEventListener("click", homeFunction);
+document.getElementById("logo").addEventListener("click", homeFunction);
 
 $(document).on("load", function() {
     location.reload();
@@ -21,7 +19,6 @@ function loadingAnim() {
     }
 }
 
-
 function homeFunction() {
     window.location.href = 'index.html';
 }
@@ -31,15 +28,11 @@ var start = localStorage.getItem("start");
 var end = localStorage.getItem("end");
 var mode = localStorage.getItem("mode");
 var language = 'fr-FR';
-console.log(start);
-console.log(end);
-console.log(mode);
 
 fetch('/api/google?origins=' + start + "&destinations=" + end + "&mode=" + mode + '&language=' + language + '&key=' + gmapskey)
 .then(function (response) {
     return response.json();
 }).then(function (mapsdata) { 
-  console.log(mapsdata);
   localStorage.setItem("duration", mapsdata.rows[0].elements[0].duration.value);
 });   
 
