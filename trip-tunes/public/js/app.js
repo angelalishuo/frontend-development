@@ -19,22 +19,22 @@ form.addEventListener('submit', function(e) {
     if ($("#playlist-name-input").val() == "" || $("#playlist-name-input").val() == null) {
     	$("#playlist-name-input").attr("placeholder", "Must enter title!");
     } else {
-	    var spotifyInput = $("#spotify-input").val();
-	    localStorage.setItem("spotify-input", spotifyInput);
+		var spotifyInput = $("#spotify-input").val();
+		localStorage.setItem("spotify-input", spotifyInput);
 
 		var opt = localStorage.getItem("adv");
 		if (opt == "true") {
-		  var energy = $("#slider-1").val();
-		  energy = (energy/100).toFixed(1);
-		  var danceability = $("#slider-2").val();
-		  danceability = (danceability/100).toFixed(1);
-		  var acousticness = $("#slider-3").val();
-		  acousticness = (acousticness/100).toFixed(1);
-		  var popularity = $("#slider-4").val();
-		  localStorage.setItem("energy", energy);
-		  localStorage.setItem("danceability", danceability);
-		  localStorage.setItem("acousticness", acousticness);
-		  localStorage.setItem("popularity", popularity);
+			var energy = $("#slider-1").val();
+			energy = (energy/100).toFixed(1);
+			var danceability = $("#slider-2").val();
+			danceability = (danceability/100).toFixed(1);
+			var acousticness = $("#slider-3").val();
+			acousticness = (acousticness/100).toFixed(1);
+			var popularity = $("#slider-4").val();
+			localStorage.setItem("energy", energy);
+			localStorage.setItem("danceability", danceability);
+			localStorage.setItem("acousticness", acousticness);
+			localStorage.setItem("popularity", popularity);
 		}
 
 		var playlistName = $("#playlist-name-input").val();
