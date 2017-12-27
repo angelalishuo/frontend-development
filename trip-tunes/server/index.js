@@ -96,6 +96,7 @@ app.get('/api/create-playlist', function (req, res) {
 
 });
 
+// STEP 4: SEARCH FOR RECOMMENDED SONGS BASED ON ARTIST
 app.get('/api/recommendations', function (req, res) {
     var artistID = req.query.artistid;
     var token = req.query.access_token;
@@ -110,20 +111,20 @@ app.get('/api/recommendations', function (req, res) {
 });
 
 
-// STEP 4: SEARCH FOR SONGS
-app.get('/api/spotify', function (req, res) {
-    var search = req.query.q;  
-    var token = req.query.access_token;
-    request.get({
-        url: 'https://api.spotify.com/v1/search?type=track&query=' + search,
-        auth: {
-            bearer: token
-        },
-        json: true
-    }, function (searchErr, searchResponse, searchBody) {
-        res.json(searchBody);   
-    });
-});
+// SEARCH FOR SONGS
+// app.get('/api/spotify', function (req, res) {
+//     var search = req.query.q;  
+//     var token = req.query.access_token;
+//     request.get({
+//         url: 'https://api.spotify.com/v1/search?type=track&query=' + search,
+//         auth: {
+//             bearer: token
+//         },
+//         json: true
+//     }, function (searchErr, searchResponse, searchBody) {
+//         res.json(searchBody);   
+//     });
+// });
 
 
 // STEP 5: ADD SONGS TO PLAYLIST
