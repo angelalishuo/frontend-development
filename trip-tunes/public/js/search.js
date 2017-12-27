@@ -25,7 +25,7 @@ window.addEventListener('load', function (e) {
 	
 	var token = window.location.search.split("?")[1].split("=")[1];
 	
-  var user_id = '';
+  	var user_id = '';
 
 	var playlist_id = '';
     
