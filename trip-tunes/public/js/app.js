@@ -6,7 +6,7 @@ var mode = $('input[name=options]:checked').val();
 
 // Google Maps API
 $(document).ready(function() {
-  localStorage.clear();
+	localStorage.clear();
 });
 
 var client_id = '8edb16d3b1b4478dab963f2908893e47';
@@ -15,10 +15,10 @@ var localredirect = "http://localhost:3000/authorize";
 //var localredirect = "https://triptunes.now.sh/authorize"
 
 form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    if ($("#playlist-name-input").val() == "" || $("#playlist-name-input").val() == null) {
-    	$("#playlist-name-input").attr("placeholder", "Must enter title!");
-    } else {
+    	e.preventDefault();
+	if ($("#playlist-name-input").val() == "" || $("#playlist-name-input").val() == null) {
+    		$("#playlist-name-input").attr("placeholder", "Must enter title!");
+    	} else {
 		var spotifyInput = $("#spotify-input").val();
 		localStorage.setItem("spotify-input", spotifyInput);
 
@@ -41,13 +41,13 @@ form.addEventListener('submit', function(e) {
 		localStorage.setItem("playlist-name", playlistName);
 
 		var spotifyAUTHURL = "https://accounts.spotify.com/authorize/?client_id=" + 
-							 client_id + "&response_type=code&redirect_uri=" + 
-							 encodeURIComponent(localredirect) + 
-							 "&scope=" + encodeURIComponent('user-read-email user-read-private playlist-modify-private playlist-modify-public playlist-read-private playlist-read-collaborative') +
-							 "&state=34fFs29kd09"; 					 
+				      client_id + "&response_type=code&redirect_uri=" + 
+				      encodeURIComponent(localredirect) + 
+				      "&scope=" + encodeURIComponent('user-read-email user-read-private playlist-modify-private playlist-modify-public playlist-read-private playlist-read-collaborative') +
+				      "&state=34fFs29kd09"; 					 
 
 		window.location.href = spotifyAUTHURL;
-    }
+	}
 });
 
 var start = document.getElementById("origin-input");
@@ -61,111 +61,109 @@ var submitButton = document.getElementById("onto-next");
 submitButton.addEventListener("click", submitFunction);
 
 function submitFunction() {
-    for (var i = 0, length = methodRadios.length; i < length; i++) {
-        if (methodRadios[i].checked) {
-            var travelMethod = methodArray[i];
-            console.log(travelMethod);
-            localStorage.setItem("mode", travelMethod);
-            break;
-        }
-    }
-    var startValue = start.value;
-    var destinationValue = destination.value;
-    var genreValue = genre.value;
+	for (var i = 0, length = methodRadios.length; i < length; i++) {
+        	if (methodRadios[i].checked) {
+		    var travelMethod = methodArray[i];
+		    localStorage.setItem("mode", travelMethod);
+		    break;
+        	}
+    	}
+	var startValue = start.value;
+	var destinationValue = destination.value;
+	var genreValue = genre.value;
 
-    localStorage.setItem("start", start.value);
-    localStorage.setItem("end", destination.value);
-    localStorage.setItem("spotifyQuery", genreValue);
+	localStorage.setItem("start", start.value);
+	localStorage.setItem("end", destination.value);
+	localStorage.setItem("spotifyQuery", genreValue);
 }
 
 function initMap() {
-    var map = new google.maps.Map(document.getElementById('map'), {
-      mapTypeControl: false,
-      center: {lat: 47.6553, lng: -122.3035},
-      zoom: 14
-    });
-
-    new AutocompleteDirectionsHandler(map);
+	var map = new google.maps.Map(document.getElementById('map'), {
+		mapTypeControl: false,
+		center: {lat: 47.6553, lng: -122.3035},
+		zoom: 14
+    	});
+    	new AutocompleteDirectionsHandler(map);
 }
   
 function AutocompleteDirectionsHandler(map) {
-    this.map = map;
-    this.originPlaceId = null;
-    this.destinationPlaceId = null;
-    this.travelMode = 'WALKING';
-    var originInput = document.getElementById('origin-input');
-    var destinationInput = document.getElementById('destination-input');
-    var modeSelector = document.getElementById('mode-selector');
-    this.directionsService = new google.maps.DirectionsService;
-    this.directionsDisplay = new google.maps.DirectionsRenderer;
-    this.directionsDisplay.setMap(map);
+	this.map = map;
+	this.originPlaceId = null;
+	this.destinationPlaceId = null;
+	this.travelMode = 'WALKING';
+	var originInput = document.getElementById('origin-input');
+	var destinationInput = document.getElementById('destination-input');
+	var modeSelector = document.getElementById('mode-selector');
+	this.directionsService = new google.maps.DirectionsService;
+	this.directionsDisplay = new google.maps.DirectionsRenderer;
+	this.directionsDisplay.setMap(map);
 
-    var originAutocomplete = new google.maps.places.Autocomplete(
-        originInput, {placeIdOnly: true});
-    var destinationAutocomplete = new google.maps.places.Autocomplete(
-        destinationInput, {placeIdOnly: true});
+	var originAutocomplete = new google.maps.places.Autocomplete(
+	originInput, {placeIdOnly: true});
+	var destinationAutocomplete = new google.maps.places.Autocomplete(
+	destinationInput, {placeIdOnly: true});
 
-    this.setupClickListener('changemode-walking', 'WALKING');
-    this.setupClickListener('changemode-bicycling', 'BICYCLING');
-    this.setupClickListener('changemode-transit', 'TRANSIT');
-    this.setupClickListener('changemode-driving', 'DRIVING');
+	this.setupClickListener('changemode-walking', 'WALKING');
+	this.setupClickListener('changemode-bicycling', 'BICYCLING');
+	this.setupClickListener('changemode-transit', 'TRANSIT');
+	this.setupClickListener('changemode-driving', 'DRIVING');
 
-    this.setupPlaceChangedListener(originAutocomplete, 'ORIG');
-    this.setupPlaceChangedListener(destinationAutocomplete, 'DEST');
+	this.setupPlaceChangedListener(originAutocomplete, 'ORIG');
+	this.setupPlaceChangedListener(destinationAutocomplete, 'DEST');
 }
 
 // Sets a listener on a radio button to change the filter type on Places
 // Autocomplete.
 AutocompleteDirectionsHandler.prototype.setupClickListener = function(id, mode) {
 	var radioButton = document.getElementById(id);
-    var me = this;
-    radioButton.addEventListener('click', function() {
+	var me = this;
+	radioButton.addEventListener('click', function() {
 		me.travelMode = mode;
 		me.route();
-    });
+	});
 };
 
 AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function(autocomplete, mode) {
-    var me = this;
-    autocomplete.bindTo('bounds', this.map);
-    autocomplete.addListener('place_changed', function() {
-		var place = autocomplete.getPlace();
-		if (!place.place_id) {
-			window.alert("Please select an option from the dropdown list.");
-			return;
-		}
-		if (mode === 'ORIG') {
-			me.originPlaceId = place.place_id;
-		} else {
-			me.destinationPlaceId = place.place_id;
-		}
-		me.route();
+	var me = this;
+	autocomplete.bindTo('bounds', this.map);
+	autocomplete.addListener('place_changed', function() {
+	var place = autocomplete.getPlace();
+	if (!place.place_id) {
+		window.alert("Please select an option from the dropdown list.");
+		return;
+	}
+	if (mode === 'ORIG') {
+		me.originPlaceId = place.place_id;
+	} else {
+		me.destinationPlaceId = place.place_id;
+	}
+	me.route();
     });
 };
 
 AutocompleteDirectionsHandler.prototype.route = function() {
-    if (!this.originPlaceId || !this.destinationPlaceId) {
-      return;
-    }
-    var me = this;
+	if (!this.originPlaceId || !this.destinationPlaceId) {
+		return;
+    	}
+    	var me = this;
 
-    this.directionsService.route({
+	this.directionsService.route({
 		origin: {'placeId': this.originPlaceId},
 		destination: {'placeId': this.destinationPlaceId},
 		travelMode: this.travelMode
-    }, function(response, status) {
+	}, function(response, status) {
 		if (status === 'OK') {
 			me.directionsDisplay.setDirections(response);
 		} else {
 			window.alert('Directions request failed due to ' + status);
 		}
-    });
+	});
 };
 
 // NAVIGATION
 // This begin button takes the user from the home page to the Google Maps page using animations (transition property)
 $("#begin").on("click", function() {
-  nav("maps");
+	nav("maps");
 });
 
 // This onto-next button takes the user from Google Maps page to Spotify page using animations (transition property)
@@ -176,23 +174,22 @@ $("#onto-next").on("click", function(e) {
 
 // This hides the music page when the page loads, just for smooth UX
 $(document).ready(function() {
-	//$("#music").hide();
-  $("#control-panel").css("margin-left", "-100vw");
-  desAnim(1);
+	$("#control-panel").css("margin-left", "-100vw");
+	desAnim(1);
 });
 
 function desAnim(t) {
-  if (t <= 6) {
-      setTimeout(function() {
-      $("#t" + t).css("opacity", "1");
-      }, 1000);
-      setTimeout(function() {
-		  $("#t" + t).css("opacity", "0");
-		  desAnim(t+1);
-      },4000);
-  } else {
-  	desAnim(1);
-  }
+	if (t <= 6) {
+		setTimeout(function() {
+			$("#t" + t).css("opacity", "1");
+		}, 1000);
+		setTimeout(function() {
+			$("#t" + t).css("opacity", "0");
+	  		desAnim(t+1);
+		},4000);
+  	} else {
+  		desAnim(1);
+	}
 }
 
 //NAVBAR UI 
@@ -221,31 +218,31 @@ $("#nav-music").on("click", function () {
 
 function nav(location) {
 	if (location == "home") {
-    $("#music").css("z-index", "-10");
-    $("#begin").show();
-    $(".header").css("top", "0");
-    $("#logo").addClass("logo-active");
-		$("#nav-home").addClass("nav-selected");
-		$("#nav-maps").removeClass("nav-selected").addClass("onmusic");
-    $("#nav-music").removeClass("nav-selected");
-    $("#nav-music").addClass("onmusic");
-    $("#nav-maps").addClass("onmusic");
-		$("#selector-ul").css({
-			"left": "33px"
-		});
-		$("#map").css({
-			"margin-left": "0"
-		});
-		$("#control-panel").css("margin-left", "-100vw");
-    $("#welcome").css("margin-left", "0");
-    setTimeout(function(){$("#begin").css("opacity","1")},100);
+	$("#music").css("z-index", "-10");
+	$("#begin").show();
+	$(".header").css("top", "0");
+	$("#logo").addClass("logo-active");
+	$("#nav-home").addClass("nav-selected");
+	$("#nav-maps").removeClass("nav-selected").addClass("onmusic");
+	$("#nav-music").removeClass("nav-selected");
+	$("#nav-music").addClass("onmusic");
+	$("#nav-maps").addClass("onmusic");
+	$("#selector-ul").css({
+		"left": "33px"
+	});
+	$("#map").css({
+		"margin-left": "0"
+	});
+	$("#control-panel").css("margin-left", "-100vw");
+	$("#welcome").css("margin-left", "0");
+	setTimeout(function(){$("#begin").css("opacity","1")},100);
 	} else if (location == "maps") {
-    $("#begin").css("opacity","0");
-    setTimeout(function(){$("#begin").hide();},500);
-    $('#origin-input').focus();
-    $("#music").css("z-index", "-10");
-    $(".header").css("top", "-80px");
-    $("#logo").removeClass("logo-active");
+		$("#begin").css("opacity","0");
+		setTimeout(function(){$("#begin").hide();},500);
+		$('#origin-input').focus();
+		$("#music").css("z-index", "-10");
+		$(".header").css("top", "-80px");
+		$("#logo").removeClass("logo-active");
 		$("#nav-maps").addClass("nav-selected");
 		$("#nav-home").removeClass("nav-selected");
 		$("#nav-music").removeClass("nav-selected");
@@ -259,12 +256,12 @@ function nav(location) {
 		$("div.navitem").removeClass("onmusic");
 		$("#control-panel").css("margin-left", "0");
 	} else if (location == "music") {
-    $("#begin").css("opacity","0");
-    setTimeout(function(){$("#begin").hide();},500);
-    $('#spotify-input').focus();
-    $("#nav-music").addClass("nav-selected");
-    $(".header").css("top", "-80px");
-    $("#logo").removeClass("logo-active");
+		$("#begin").css("opacity","0");
+		setTimeout(function(){$("#begin").hide();},500);
+		$('#spotify-input').focus();
+		$("#nav-music").addClass("nav-selected");
+		$(".header").css("top", "-80px");
+		$("#logo").removeClass("logo-active");
 		$("#nav-home").removeClass("nav-selected");
 		$("#nav-maps").removeClass("nav-selected");
 		$("#selector-ul").css({
