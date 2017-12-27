@@ -310,10 +310,10 @@ $("#more-options-btn").on("click", function() {
 		$("#more-options").css("display", "block");
 		$("#music").css("height", "140vh");
 		setTimeout(function() {
-        $("#more-options").css({
-        	"height": "300px"
-        });
-	}, 0.000000001);
+			$("#more-options").css({
+				"height": "300px"
+			});
+		}, 0.000000001);
 		localStorage.setItem("adv", "true");
 		$("#more-options-btn").text("Hide Options");
 		$("#more-options-btn").css("color", "gray");
@@ -323,13 +323,13 @@ $("#more-options-btn").on("click", function() {
 		$("#more-options").css("height", "0");
 		$("#music").css("height", "100vh");
 		setTimeout(function() {
-        $("#more-options").css({
-        	"display": "none"
-        });
+        		$("#more-options").css({
+        			"display": "none"
+        		});
 		}, 150);
 		localStorage.setItem("adv", "false");
 		$("#more-options-btn").text("More Options");
 		$("#more-options-btn").css("color", "rgb(55, 167, 55)");
 		options = false;
-    }
+	}
 });
