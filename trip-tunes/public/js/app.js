@@ -12,7 +12,7 @@ $(document).ready(function() {
 var client_id = '8edb16d3b1b4478dab963f2908893e47';
 var gmapskey = 'AIzaSyD760B3T64Czqn7vtTUcvUunqKlLXs4FNo';
 var localredirect = "http://localhost:3000/authorize";
-//var localredirect = "https://triptunes.now.sh/authorize"
+// var localredirect = "https://triptunes.now.sh/authorize"
 
 form.addEventListener('submit', function(e) {
     	e.preventDefault();
@@ -192,7 +192,7 @@ function desAnim(t) {
 	}
 }
 
-//NAVBAR UI 
+// NAVBAR UI 
 /* Basically when each of the three buttons is clicked, a few things are happening
 
 	1. The .nav-selected class is being added to the icon that was clicked,
